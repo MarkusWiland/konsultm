@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Container } from "./_components/container";
 import { Header } from "./_components/header";
+import { Footer } from "./_components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,14 +22,10 @@ export default function RootLayout({
       <body className={inter.className}>
         <div>
           <Header />
-          </div>
-          <main className="pt-[var(--navigation-height)]">
-            {children}
-            </main>
-            <footer>
-              <Container>Footer Here </Container>
-            </footer>
-            </body>
+          <main className="pt-[var(--navigation-height)]">{children}</main>
+          <Footer />
+        </div>
+      </body>
     </html>
   );
 }
