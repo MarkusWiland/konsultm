@@ -10,6 +10,9 @@ const config = {
   ],
   prefix: "",
   theme: {
+    fontFamily: {
+      mono: ["IBM Plex Mono", "monospace"],
+    },
     fontSize: {
       xs: "1.3rem",
       sm: "1.4rem",

@@ -35,16 +35,21 @@ export default function HomePageHero() {
             >
               <span>Get Started </span>
             </ButtonComponent>
+            <div className="mt-[12.8rem]  [perspective:2000px]">
+              <div className="rounded-lg  [transform:rotateX(25deg)]  border border-transparent-white bg-white bg-opacity-10 ">
+                <img
+                  src="/football.jpg"
+                  alt=""
+                  className=""
+                  height={400}
+                  width="100%"
+                />
+              </div>
+            </div>
           </Hero>
         </Container>
       </div>
-      <Container>
-        <div className="mt-[12.8rem] [perspective:2000px]">
-          <div className="rounded-lg border border-transparent-white bg-white bg-opacity-10">
-            <img src="/football.jpg" alt="" className="mt-[12.8rem] " height={400} width="100%"/>
-          </div>
-        </div>
-      </Container>
+
       <div
         className={cn(
           "mask-radial-faded pointer-events-none relative z-[-1] my-[-12.8rem] h-[60rem] overflow-hidden",
@@ -54,20 +59,37 @@ export default function HomePageHero() {
       />
       <div className="">
         <Container>
-        <div className="text-center">
-        <h2 className="mb-4 text-4xl md:mb-7 md:text-7xl">
-          Unlike any tool
-          <br className="hidden md:inline-block" /> you've used before
-        </h2>
-        <p className="mx-auto mb-12 max-w-[68rem] text-lg text-primary-text md:mb-7 md:text-xl">
-          Designed to the last pixel and engineered with unforgiving precision,
-          Linear combines UI elegance with world-class performance.
-        </p>
-      </div>
+          <div className="text-center">
+            <h2 className="mb-4 text-4xl md:mb-7 md:text-7xl">
+              Unlike any tool
+              <br className="hidden md:inline-block" /> you've used before
+            </h2>
+            <p className="mx-auto mb-12 max-w-[68rem] text-lg text-primary-text md:mb-7 md:text-xl">
+              Designed to the last pixel and engineered with unforgiving
+              precision, Linear combines UI elegance with world-class
+              performance.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-6">
+            <div className="flex bg-red-200 flex-col justify-end min-h-[48rem] text-center basis-[calc(66.66%-12px)] bg-glass-gradient p-8 border rounded-[4.8rem] border-transparent-white md:p-14">
+              <p className="text-3xl">Build for keyobard</p>
+              <p className="text-md">asdasdasd</p>
+            </div>
+            <div className="flex flex-col justify-end min-h-[48rem]  text-center basis-[calc(33.33%-12px)] bg-glass-gradient p-8 border rounded-[4.8rem] border-transparent-white md:p-14">
+              <p className="text-3xl">Build for keyobard</p>
+              <p className="text-md">asdasdasd</p>
+            </div>
+            <div className="flex flex-col justify-end min-h-[48rem]  text-center basis-[calc(33.33%-12px)] bg-glass-gradient p-8 border rounded-[4.8rem] border-transparent-white md:p-14">
+              <p className="text-3xl">Build for keyobard</p>
+              <p className="text-md">asdasdasd</p>
+            </div>
+            <div className="flex flex-col justify-end min-h-[48rem]  text-center basis-[calc(66.66%-12px)] bg-glass-gradient p-8 border rounded-[4.8rem] border-transparent-white md:p-14">
+              <p className="text-3xl">Build for keyobard</p>
+              <p className="text-md">asdasdasd</p>
+            </div>
+          </div>
         </Container>
       </div>
-      
-      
     </>
   );
 }
