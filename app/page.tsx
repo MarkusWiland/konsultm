@@ -3,7 +3,7 @@ import { Hero, HeroSubtitle, HeroTitle } from "./_components/hero";
 import { ButtonComponent } from "./_components/button";
 import { Container } from "./_components/container";
 import { cn } from "@/lib/utils";
-
+import { Calendar } from 'lucide-react';
 export default function HomePageHero() {
   return (
     <>
@@ -49,7 +49,25 @@ export default function HomePageHero() {
           </Hero>
         </Container>
       </div>
+      <Container>
+        <p className="mb-12 text-center text-lg text-white md:text-xl">
+          <span className="text-primary-text">
+            Powering the world’s best product teams.
+          </span>
+          <br className="hidden md:block" /> From next-gen startups to
+          established enterprises.
+        </p>
 
+        <div className="flex flex-wrap justify-around gap-x-6 gap-y-8  ">
+        <Calendar />
+        <Calendar />
+        <Calendar />
+        <Calendar />
+        <Calendar />
+        <Calendar />
+        <Calendar />
+        </div>
+      </Container>
       <div
         className={cn(
           "mask-radial-faded pointer-events-none relative z-[-1] my-[-12.8rem] h-[60rem] overflow-hidden",
@@ -57,39 +75,37 @@ export default function HomePageHero() {
           "after:absolute after:top-1/2 after:-left-1/2 after:h-[142.8%] after:w-[200%] after:rounded-[50%] after:border-t after:border-[rgba(120,_119,_198,_0.4)] after:bg-background"
         )}
       />
-      <div className="">
-        <Container>
-          <div className="text-center">
-            <h2 className="mb-4 text-4xl md:mb-7 md:text-7xl">
-              Unlike any tool
-              <br className="hidden md:inline-block" /> you've used before
-            </h2>
-            <p className="mx-auto mb-12 max-w-[68rem] text-lg text-primary-text md:mb-7 md:text-xl">
-              Designed to the last pixel and engineered with unforgiving
-              precision, Linear combines UI elegance with world-class
-              performance.
-            </p>
+  
+      <Container>
+        <div className="text-center">
+          <h2 className="mb-4 text-4xl md:mb-7 md:text-7xl">
+            Unlike any tool
+            <br className="hidden md:inline-block" /> you've used before
+          </h2>
+          <p className="mx-auto mb-12 max-w-[68rem] text-lg text-primary-text md:mb-7 md:text-xl">
+            Designed to the last pixel and engineered with unforgiving
+            precision, Linear combines UI elegance with world-class performance.
+          </p>
+        </div>
+        <div className="flex flex-wrap gap-6">
+          <div className="flex bg-red-200 flex-col justify-end min-h-[48rem] text-center basis-[calc(66.66%-12px)] bg-glass-gradient p-8 border rounded-[4.8rem] border-transparent-white md:p-14">
+            <p className="text-3xl">Build for keyobard</p>
+            <p className="text-md">asdasdasd</p>
           </div>
-          <div className="flex flex-wrap gap-6">
-            <div className="flex bg-red-200 flex-col justify-end min-h-[48rem] text-center basis-[calc(66.66%-12px)] bg-glass-gradient p-8 border rounded-[4.8rem] border-transparent-white md:p-14">
-              <p className="text-3xl">Build for keyobard</p>
-              <p className="text-md">asdasdasd</p>
-            </div>
-            <div className="flex flex-col justify-end min-h-[48rem]  text-center basis-[calc(33.33%-12px)] bg-glass-gradient p-8 border rounded-[4.8rem] border-transparent-white md:p-14">
-              <p className="text-3xl">Build for keyobard</p>
-              <p className="text-md">asdasdasd</p>
-            </div>
-            <div className="flex flex-col justify-end min-h-[48rem]  text-center basis-[calc(33.33%-12px)] bg-glass-gradient p-8 border rounded-[4.8rem] border-transparent-white md:p-14">
-              <p className="text-3xl">Build for keyobard</p>
-              <p className="text-md">asdasdasd</p>
-            </div>
-            <div className="flex flex-col justify-end min-h-[48rem]  text-center basis-[calc(66.66%-12px)] bg-glass-gradient p-8 border rounded-[4.8rem] border-transparent-white md:p-14">
-              <p className="text-3xl">Build for keyobard</p>
-              <p className="text-md">asdasdasd</p>
-            </div>
+          <div className="flex flex-col justify-end min-h-[48rem]  text-center basis-[calc(33.33%-12px)] bg-glass-gradient p-8 border rounded-[4.8rem] border-transparent-white md:p-14">
+            <p className="text-3xl">Build for keyobard</p>
+            <p className="text-md">asdasdasd</p>
           </div>
-        </Container>
-      </div>
+          <div className="flex flex-col justify-end min-h-[48rem]  text-center basis-[calc(33.33%-12px)] bg-glass-gradient p-8 border rounded-[4.8rem] border-transparent-white md:p-14">
+            <p className="text-3xl">Build for keyobard</p>
+            <p className="text-md">asdasdasd</p>
+          </div>
+          <div className="flex flex-col justify-end min-h-[48rem]  text-center basis-[calc(66.66%-12px)] bg-glass-gradient p-8 border rounded-[4.8rem] border-transparent-white md:p-14">
+            <p className="text-3xl">Build for keyobard</p>
+            <p className="text-md">asdasdasd</p>
+          </div>
+        </div>
+      </Container>
     </>
   );
 }
