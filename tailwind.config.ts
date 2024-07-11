@@ -69,6 +69,7 @@ const config = {
       },
        colors: {
       transparent: "transparent",
+      whiteopaque: "rgba(255, 255, 255, .1)",
       white: "#fff",
       "off-white": "#f7f8f8",
       "transparent-white": "rgba(255, 255, 255, 0.08)",
