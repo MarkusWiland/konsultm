@@ -69,14 +69,14 @@
 
 @layer base {
   * {
-    @apply border-border;
+  
   }
   html {
     @apply font-mono text-off-white;
     font-size: 62.5%;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background ;
   }
 }
 
@@ -124,5 +124,9 @@
       black calc(60%),
       transparent 100%
     );
+  }
+  .linearCarousel {
+    background: rgb(255,255,255);
+    background: linear-gradient(155deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.6670869031206232) 57%, rgba(255,255,255,0.3211485277704832) 100%); 
   }
 }

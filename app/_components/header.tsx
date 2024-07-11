@@ -3,10 +3,31 @@ import { Container } from "./container";
 import Link from "next/link";
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { ButtonComponent } from "./button";
-
+const navLinks = [
+  {
+    title: "Hem",
+    href: "/",
+  },
+  {
+    title: "Konsult",
+    href: "/konsult",
+  },
+  {
+    title: "Uppdrag",
+    href: "/uppdrag",
+  },
+  {
+    title: "Om",
+    href: "/om",
+  },
+  {
+    title: "Kontakt",
+    href: "/kontakt",
+  },
+];
 export const Header = () => {
   return (
-    <header className="fixed top-0 left-0 z-10 w-full border-b border-transparent-black backdrop-blur-[12px]">
+    <header className="fixed top-0 left-0 z-10 w-full border-b border-[rgba(120,_119,_198,_0.4)] backdrop-blur-[12px]">
       <Container className="flex h-[var(--navigation-height)]">
         <Link href="/" className="flex items-center text-md">
           <h1>header</h1>
@@ -18,18 +39,13 @@ export const Header = () => {
                 "flex h-full items-center [&_a]:text-sm [&_li]:ml-6"
               )}
             >
-              <li>
-                <Link href="#">Hem</Link>
-              </li>
-              <li>
-                <Link href="#">Start</Link>
-              </li>
-              <li>
-                <Link href="#">Hem</Link>
-              </li>
-              <li>
-                <Link href="#">Hem</Link>
-              </li>
+              {navLinks.map((link) => (
+                <li key={link.title}>
+                  <Link href={link.href}>
+                    {link.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </nav>
         </div>
@@ -57,7 +73,7 @@ export const Header = () => {
 
         <ButtonComponent
           className="ml-6 md:hidden"
-          variant="tertiary"
+          variant="primary"
           size="medium"
           href="#"
         >

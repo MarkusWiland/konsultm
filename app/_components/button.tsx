@@ -5,9 +5,9 @@ import Link from "next/link";
 const buttonClasses = cva("", {
   variants: {
     variant: {
-      primary: "",
+      primary: "bg-primary-gradient",
       secondary: "",
-      tertiary: "",
+      
     },
     size: {
       small: "text-xs px-3 h-7",
@@ -28,7 +28,7 @@ export const ButtonComponent = ({
 }: {
   children: React.ReactNode;
   href: string;
-  variant: "primary" | "secondary" | "tertiary";
+  variant: "primary" | "secondary";
   size: "small" | "medium" | "large";
   className?: string;
 }) => {

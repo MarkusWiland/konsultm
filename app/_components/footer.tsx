@@ -49,7 +49,7 @@ export const Footer = () => (
       <div>
         <div className="flex h-full flex-row justify-between lg:flex-col">
           <div className="flex items-center text-grey">
-            Linear - Designed worldwide
+            Konsultmatch - Din bästa konsultmatch
           </div>
           <div className="mt-auto flex space-x-4 text-grey"></div>
         </div>
