@@ -5,10 +5,14 @@ import { Container } from "./_components/container";
 import { cn } from "@/lib/utils";
 import {
   Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
+
 } from "@/components/ui/card";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 import {
   Carousel,
   CarouselContent,
@@ -17,6 +21,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Calendar } from "lucide-react";
+import Image from "next/image";
 export default function HomePageHero() {
   return (
     <>
@@ -76,10 +81,13 @@ export default function HomePageHero() {
                       <div className="">
                         <Card className="bg-glass-gradient flex flex-col items-center justify-center  text-white hover:bg-whiteopaque transition-colors duration-300 cursor-pointer">
                           <div className="flex flex-col space-y-4 items-center pt-4 p-6 justify-center text-center">
-                            <img
+                            <Image
                               src="https://via.placeholder.com/100"
+                              width={100}
+                              height={100}
                               alt="placeholder"
-                              className="rounded-full w-[10rem] h-[10rem]"
+                        
+                              className={`${true ? "blur" : ""} rounded-full w-[10rem] h-[10rem]`}
                             />
 
                             <div className="space-y-2 w-[1/2]">
@@ -88,7 +96,7 @@ export default function HomePageHero() {
                               </h1>
                               <h3 className="text-[1rem]">Göteborg</h3>
                               <p className="text-[1rem]">
-                                <span>Frontend utvecklare</span>
+                                <span className={`${true ? "blur" : ""} `}>Frontend utvecklare</span>
                                 <span>React, Next.js, Tailwind</span>
                               </p>
                             </div>
@@ -139,10 +147,13 @@ export default function HomePageHero() {
                       <div className="">
                         <Card className="bg-glass-gradient flex flex-col items-center justify-center  text-white hover:bg-whiteopaque transition-colors duration-300 cursor-pointer">
                           <div className="flex flex-col space-y-4 items-center pt-4 p-6 justify-center text-center">
-                            <img
+                          <Image
                               src="https://via.placeholder.com/100"
+                              width={1000}
+                              height={100}
                               alt="placeholder"
-                              className="rounded-lg w-full h-[10rem]"
+                        
+                              className={`${true ? "blur" : ""} rounded-lg w-[100rem] h-[10rem]`}
                             />
 
                             <div className="space-y-2 w-[1/2]">

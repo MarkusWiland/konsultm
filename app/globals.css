@@ -126,4 +126,11 @@
     );
   }
 
+
+
+  /* BLUR TO IMAGE IF NOT LOGGED IN */
+  .blur {
+    filter: blur(10px);
+  } 
+
 }
