@@ -3,7 +3,12 @@ import { Hero, HeroSubtitle, HeroTitle } from "./_components/hero";
 import { ButtonComponent } from "./_components/button";
 import { Container } from "./_components/container";
 import { cn } from "@/lib/utils";
-import { Card, CardContent } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -48,87 +53,131 @@ export default function HomePageHero() {
         </Container>
       </div>
       <div className="overflow-hidden pb-[16.4rem] md:pb-[25.6rem]">
-      <Container>
-        <div className="flex gap-[10rem]">
-          <div className="flex-1 basis-1/3 flex flex-col space-y-8">
-            <HeroTitle className="md:text-2xl">
-              Hitta proffs du verkligen kommer att älska att arbeta med
-            </HeroTitle>
-            <HeroSubtitle className="mb-2 md:text-xs">
-              Träffa toppexperter som förstår dina behov. Våra noggrant utvalda
-              konsulter är redo att skapa framgång tillsammans med dig. Anslut
-              dig idag och upptäck skillnaden!
-            </HeroSubtitle>
+        <Container>
+          <div className="flex  flex-col space-y-8">
+            <div className="flex flex-col items-center space-y-4  max-w-[70rem] text-center mx-auto">
+              <HeroTitle className="md:text-4xl my-0">
+                Hitta proffs du verkligen kommer att älska att arbeta med
+              </HeroTitle>
+              <HeroSubtitle className="mb-2 md:text-xs">
+                Träffa toppexperter som förstår dina behov. Våra noggrant
+                utvalda konsulter är redo att skapa framgång tillsammans med
+                dig. Anslut dig idag och upptäck skillnaden!
+              </HeroSubtitle>
+            </div>
+            <div className="flex-1 basis-2/3 relative">
+              <Carousel opts={{ align: "start" }} className="w-full relative">
+                <CarouselContent>
+                  {Array.from({ length: 5 }).map((_, index) => (
+                    <CarouselItem
+                      key={index}
+                      className="md:basis-1/2 lg:basis-1/3 "
+                    >
+                      <div className="">
+                        <Card className="bg-glass-gradient flex flex-col items-center justify-center  text-white hover:bg-whiteopaque transition-colors duration-300 cursor-pointer">
+                          <div className="flex flex-col space-y-4 items-center pt-4 p-6 justify-center text-center">
+                            <img
+                              src="https://via.placeholder.com/100"
+                              alt="placeholder"
+                              className="rounded-full w-[10rem] h-[10rem]"
+                            />
+
+                            <div className="space-y-2 w-[1/2]">
+                              <h1 className="font-bold text-sm">
+                                Markus Wiland
+                              </h1>
+                              <h3 className="text-[1rem]">Göteborg</h3>
+                              <p className="text-[1rem]">
+                                <span>Frontend utvecklare</span>
+                                <span>React, Next.js, Tailwind</span>
+                              </p>
+                            </div>
+
+                            <ButtonComponent
+                              href="/"
+                              variant="primary"
+                              size="small"
+                              className="rounded-full uppercase"
+                            >
+                              Gå till profil
+                            </ButtonComponent>
+                          </div>
+                        </Card>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+              </Carousel>
+              <div className="pointer-events-none absolute inset-y-0 right-0 w-[10rem] bg-gradient-to-l from-[#000212] to-transparent"></div>
+              <div className="pointer-events-none absolute inset-y-0 left-0 w-[10rem] bg-gradient-to-r from-[#000212] to-transparent"></div>
+            </div>
           </div>
-          <div className="flex-1 basis-2/3 relative">
-            <Carousel opts={{ align: "start" }} className="w-full relative">
-              <CarouselContent>
-                {Array.from({ length: 5 }).map((_, index) => (
-                  <CarouselItem
-                    key={index}
-                    className="md:basis-1/2 lg:basis-1/3 "
-                  >
-                    <div className="p-1">
-                      <Card className="bg-[#000212] text-white">
-                        <CardContent className="flex aspect-square items-center justify-center p-6">
-                          <span className="text-3xl font-semibold">
-                            {index + 1}
-                          </span>
-                        </CardContent>
-                      </Card>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
-            </Carousel>
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-[10rem] bg-gradient-to-l from-[#000212] to-transparent"></div>
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-[10rem] bg-gradient-to-r from-[#000212] to-transparent"></div>
+        </Container>
+        <Container className="mt-[12.8rem] ">
+          <div className="flex  flex-col space-y-8">
+            <div className="flex flex-col items-center space-y-4 max-w-[70rem] text-center mx-auto">
+              <HeroTitle className="md:text-4xl my-0">
+                Hitta spännande uppdrag som passar dig{" "}
+              </HeroTitle>
+              <HeroSubtitle className="mb-2 md:text-xs">
+                Utforska nya möjligheter med uppdrag som utmanar och inspirerar.
+                Vårt nätverk erbjuder handplockade möjligheter som matchar dina
+                talanger och ambitioner perfekt. Anslut dig idag och ta steget
+                mot din nästa professionella prestation.
+              </HeroSubtitle>
+            </div>
+            <div className="flex-1 basis-2/3 relative">
+              <Carousel opts={{ align: "start" }} className="w-full relative">
+                <CarouselContent>
+                  {Array.from({ length: 5 }).map((_, index) => (
+                    <CarouselItem
+                      key={index}
+                      className="md:basis-1/2 lg:basis-1/3 "
+                    >
+                      <div className="">
+                        <Card className="bg-glass-gradient flex flex-col items-center justify-center  text-white hover:bg-whiteopaque transition-colors duration-300 cursor-pointer">
+                          <div className="flex flex-col space-y-4 items-center pt-4 p-6 justify-center text-center">
+                            <img
+                              src="https://via.placeholder.com/100"
+                              alt="placeholder"
+                              className="rounded-lg w-full h-[10rem]"
+                            />
+
+                            <div className="space-y-2 w-[1/2]">
+                              <h1 className="font-bold text-sm">
+                                Markus Wiland
+                              </h1>
+                              <h3 className="text-[1rem]">Göteborg</h3>
+                              <p className="text-[1rem]">
+                                <span>Frontend utvecklare</span>
+                                <span>React, Next.js, Tailwind</span>
+                              </p>
+                            </div>
+
+                            <ButtonComponent
+                              href="/"
+                              variant="primary"
+                              size="small"
+                              className="rounded-full uppercase"
+                            >
+                              Gå till uppdrag
+                            </ButtonComponent>
+                          </div>
+                        </Card>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+              </Carousel>
+              <div className="pointer-events-none absolute inset-y-0 right-0 w-[10rem] bg-gradient-to-l from-[#000212] to-transparent"></div>
+              <div className="pointer-events-none absolute inset-y-0 left-0 w-[10rem] bg-gradient-to-r from-[#000212] to-transparent"></div>
+            </div>
           </div>
-        </div>
-      </Container>
-      <Container className="mt-[12.8rem] ">
-        <div className="flex gap-[10rem]">
-          <div className="flex-1 basis-2/3 relative">
-            <Carousel opts={{ align: "start" }} className="w-full relative">
-              <CarouselContent>
-                {Array.from({ length: 5 }).map((_, index) => (
-                  <CarouselItem
-                    key={index}
-                    className="md:basis-1/2 lg:basis-1/3 "
-                  >
-                    <div className="p-1">
-                      <Card className="bg-[#000212] text-white">
-                        <CardContent className="flex aspect-square items-center justify-center p-6">
-                          <span className="text-3xl font-semibold">
-                            {index + 1}
-                          </span>
-                        </CardContent>
-                      </Card>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
-            </Carousel>
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-[10rem] bg-gradient-to-l from-[#000212] to-transparent"></div>
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-[10rem] bg-gradient-to-r from-[#000212] to-transparent"></div>
-          </div>
-          <div className="flex-1 basis-1/3 flex flex-col space-y-8">
-            <HeroTitle className="md:text-2xl">
-              Hitta spännande uppdrag som passar dig{" "}
-            </HeroTitle>
-            <HeroSubtitle className="mb-2 md:text-xs">
-              Utforska nya möjligheter med uppdrag som utmanar och inspirerar.
-              Vårt nätverk erbjuder handplockade möjligheter som matchar dina
-              talanger och ambitioner perfekt. Anslut dig idag och ta steget mot
-              din nästa professionella prestation.
-            </HeroSubtitle>
-          </div>
-        </div>
-      </Container>
+        </Container>
       </div>
       <Container>
         <HeroSubtitle className="mb-12 text-center text-lg text-white md:text-xl">
