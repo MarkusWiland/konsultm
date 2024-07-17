@@ -8,7 +8,6 @@ const config = {
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
   ],
-  prefix: "",
   theme: {
     fontFamily: {
       mono: ["IBM Plex Mono", "monospace"],
@@ -47,7 +46,6 @@ const config = {
       16: "6.4rem",
       "navigation-height": "var(--navigation-height)",
     },
-  
     extend: {
       backgroundImage: {
         "primary-gradient":
@@ -64,20 +62,54 @@ const config = {
           "radial-gradient(circle at bottom center,var(--color),transparent 70%)",
         "glass-gradient":
           "linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.05) 100%)",
-          "test-gradient":
-          "linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.05) 100%)", 
+        "test-gradient":
+          "linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.05) 100%)",
       },
-       colors: {
-      transparent: "transparent",
-      whiteopaque: "rgba(255, 255, 255, .1)",
-      white: "#fff",
-      "off-white": "#f7f8f8",
-      "transparent-white": "rgba(255, 255, 255, 0.08)",
-      background: "#000212",
-      grey: "#858699",
-      "grey-dark": "#222326",
-      "primary-text": "#b4bcd0",
-    },
+      colors: {
+        transparent: "transparent",
+        whiteopaque: "rgba(255, 255, 255, .1)",
+        white: "#fff",
+        "off-white": "#f7f8f8",
+        "transparent-white": "rgba(255, 255, 255, 0.08)",
+        backgroundPurpel: "#000212",
+        grey: "#858699",
+        "grey-dark": "#222326",
+        "primary-text": "#b4bcd0",
+
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

@@ -7,7 +7,6 @@ const buttonClasses = cva("", {
     variant: {
       primary: "bg-primary-gradient",
       secondary: "",
-      
     },
     size: {
       small: "text-xs px-3 h-7",
@@ -34,10 +33,15 @@ export const ButtonComponent = ({
 }) => {
   const classes = buttonClasses({ variant, size, className: props.className });
   return (
-    <Link href={props.href}>
-      <Button {...props} className={classes}>
-        {children}
-      </Button>
-    </Link>
+  
+    
+        <Button {...props} className={classes}>
+          
+
+          {children}
+            
+        </Button>
+    
+
   );
 };

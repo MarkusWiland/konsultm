@@ -1,18 +1,9 @@
-import { Button } from "@/components/ui/button";
 import { Hero, HeroSubtitle, HeroTitle } from "./_components/hero";
 import { ButtonComponent } from "./_components/button";
 import { Container } from "./_components/container";
 import { cn } from "@/lib/utils";
-import {
-  Card,
+import { Card } from "@/components/ui/card";
 
-} from "@/components/ui/card";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
 import {
   Carousel,
   CarouselContent,
@@ -22,7 +13,10 @@ import {
 } from "@/components/ui/carousel";
 import { Calendar } from "lucide-react";
 import Image from "next/image";
-export default function HomePageHero() {
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+export default async function HomePageHero() {
+  const { isAuthenticated } = getKindeServerSession();
+  console.log("isAuthenticated", await isAuthenticated());
   return (
     <>
       <div className="overflow-hidden pb-[16.4rem] md:pb-[25.6rem]">
@@ -73,21 +67,24 @@ export default function HomePageHero() {
             <div className="flex-1 basis-2/3 relative">
               <Carousel opts={{ align: "start" }} className="w-full relative">
                 <CarouselContent>
-                  {Array.from({ length: 5 }).map((_, index) => (
+                  {Array.from({ length: 5 }).map(async (_, index) => (
                     <CarouselItem
                       key={index}
                       className="md:basis-1/2 lg:basis-1/3 "
                     >
                       <div className="">
-                        <Card className="bg-glass-gradient flex flex-col items-center justify-center  text-white hover:bg-whiteopaque transition-colors duration-300 cursor-pointer">
+                        <Card
+                          className={`${
+                            (await isAuthenticated()) ? "" : "blur"
+                          } bg-glass-gradient flex flex-col items-center justify-center  text-white hover:bg-whiteopaque transition-colors duration-300 cursor-pointer`}
+                        >
                           <div className="flex flex-col space-y-4 items-center pt-4 p-6 justify-center text-center">
                             <Image
                               src="https://via.placeholder.com/100"
                               width={100}
                               height={100}
                               alt="placeholder"
-                        
-                              className={`${true ? "blur" : ""} rounded-full w-[10rem] h-[10rem]`}
+                              className={` rounded-full w-[10rem] h-[10rem]`}
                             />
 
                             <div className="space-y-2 w-[1/2]">
@@ -96,7 +93,7 @@ export default function HomePageHero() {
                               </h1>
                               <h3 className="text-[1rem]">Göteborg</h3>
                               <p className="text-[1rem]">
-                                <span className={`${true ? "blur" : ""} `}>Frontend utvecklare</span>
+                                <span>Frontend utvecklare</span>
                                 <span>React, Next.js, Tailwind</span>
                               </p>
                             </div>
@@ -139,21 +136,24 @@ export default function HomePageHero() {
             <div className="flex-1 basis-2/3 relative">
               <Carousel opts={{ align: "start" }} className="w-full relative">
                 <CarouselContent>
-                  {Array.from({ length: 5 }).map((_, index) => (
+                  {Array.from({ length: 5 }).map(async (_, index) => (
                     <CarouselItem
                       key={index}
                       className="md:basis-1/2 lg:basis-1/3 "
                     >
                       <div className="">
-                        <Card className="bg-glass-gradient flex flex-col items-center justify-center  text-white hover:bg-whiteopaque transition-colors duration-300 cursor-pointer">
+                        <Card
+                          className={`${
+                            (await isAuthenticated()) ? "" : "blur"
+                          }   bg-glass-gradient flex flex-col items-center justify-center  text-white hover:bg-whiteopaque transition-colors duration-300 cursor-pointer`}
+                        >
                           <div className="flex flex-col space-y-4 items-center pt-4 p-6 justify-center text-center">
-                          <Image
+                            <Image
                               src="https://via.placeholder.com/100"
                               width={1000}
                               height={100}
                               alt="placeholder"
-                        
-                              className={`${true ? "blur" : ""} rounded-lg w-[100rem] h-[10rem]`}
+                              className={`rounded-lg w-[100rem] h-[10rem]`}
                             />
 
                             <div className="space-y-2 w-[1/2]">
@@ -199,21 +199,42 @@ export default function HomePageHero() {
           established enterprises.
         </HeroSubtitle>
 
-        <div className="flex flex-wrap justify-around gap-x-6 gap-y-8  ">
-          <Calendar />
-          <Calendar />
-          <Calendar />
-          <Calendar />
-          <Calendar />
-          <Calendar />
-          <Calendar />
+        <div className="grid grid-cols-6">
+        <div className=" border-[hsla(0,0%,100%,.125)] border-t border-b border-l p-4 col-span-1">
+                      <p className="mb-12">01</p>
+            <div>
+              <h3>Markus</h3>
+              <p>Cooool</p>
+            </div>
+          </div>
+          <div className="border border-[hsla(0,0%,100%,.125)] border-t border-b border-l p-4 col-span-2">    
+                  <p className="mb-12">01</p>
+            <div>
+              <h3>Markus</h3>
+              <p>Cooool</p>
+            </div>
+          </div>
+          <div className="border border-[hsla(0,0%,100%,.125)] border-t border-b   p-4 col-span-1">    
+                  <p className="mb-12">01</p>
+            <div>
+              <h3>Markus</h3>
+              <p>Cooool</p>
+            </div>
+          </div>
+          <div className="border border-[hsla(0,0%,100%,.125)] border-t border-b  border-r p-4 col-span-2"> 
+                     <p className="mb-12">01</p>
+            <div>
+              <h3>Markus</h3>
+              <p>Cooool</p>
+            </div>
+          </div>
         </div>
       </Container>
       <div
         className={cn(
           "mask-radial-faded pointer-events-none relative z-[-1] my-[-12.8rem] h-[60rem] overflow-hidden",
           "[--color:#7877C6] before:absolute before:inset-0 before:bg-radial-faded before:opacity-[0.4]",
-          "after:absolute after:top-1/2 after:-left-1/2 after:h-[142.8%] after:w-[200%] after:rounded-[50%] after:border-t after:border-[rgba(120,_119,_198,_0.4)] after:bg-background"
+          "after:absolute after:top-1/2 after:-left-1/2 after:h-[142.8%] after:w-[200%] after:rounded-[50%] after:border-t after:border-[rgba(120,_119,_198,_0.4)] after:bg-backgroundPurpel"
         )}
       />
 

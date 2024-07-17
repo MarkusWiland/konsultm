@@ -3,8 +3,28 @@ import { Container } from "./container";
 import Link from "next/link";
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { ButtonComponent } from "./button";
+import {
+  RegisterLink,
+  LoginLink,
+  LogoutLink,
+} from "@kinde-oss/kinde-auth-nextjs/components";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 const navLinks = [
-
   {
     title: "Konsult",
     href: "/konsult",
@@ -22,7 +42,10 @@ const navLinks = [
     href: "/kontakt",
   },
 ];
-export const Header = () => {
+export const Header = async () => {
+  const { getUser, isAuthenticated } = getKindeServerSession();
+  const user = await getUser();
+  console.log("user", user);
   return (
     <header className="fixed top-0 left-0 z-10 w-full border-b border-[rgba(120,_119,_198,_0.4)] backdrop-blur-[12px]">
       <Container className="flex h-[var(--navigation-height)]">
@@ -34,7 +57,7 @@ export const Header = () => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <g clip-path="url(#clip0_1_1296)">
+            <g clipPath="url(#clip0_1_1296)">
               <mask
                 id="mask0_1_1296"
                 style={{ maskType: "luminance" }}
@@ -130,24 +153,50 @@ export const Header = () => {
           </nav>
         </div>
         <div className="ml-auto flex h-full items-center">
-          {true ? (
+          {(await isAuthenticated()) ? (
+            <DropdownMenu>
+              <DropdownMenuTrigger>
+                <Avatar className="border">
+                  <AvatarImage
+                    src={user?.picture || "https://github.com/shadcn.png"}
+                  />
+                  <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+              </DropdownMenuTrigger>
+
+              <DropdownMenuContent className="">
+                <DropdownMenuLabel>Konto</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>Profil</DropdownMenuItem>
+                <DropdownMenuItem>Billing</DropdownMenuItem>
+                <DropdownMenuSeparator />
+
+                <DropdownMenuItem className="bg-primary rounded-xl flex items-center justify-center text-white">
+                  <LogoutLink>Logga ut</LogoutLink>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          ) : (
             <>
-              <Link className="mr-6 text-sm" href="#">
+              <LoginLink
+                authUrlParams={{
+                  connection_id:
+                    process.env.NEXT_PUBLIC_KINDE_CONNECTION_EMAIL_PASSWORD ||
+                    "",
+                }}
+              >
                 Logga in
-              </Link>
+              </LoginLink>
+
               <ButtonComponent
                 href="#"
                 className="rounded-full"
                 variant="primary"
                 size="medium"
               >
-                Registrera
+                <RegisterLink>Registera</RegisterLink>
               </ButtonComponent>
             </>
-          ) : (
-            <Link className="mr-6 text-sm" href="#">
-              Logga ut
-            </Link>
           )}
         </div>
 

@@ -19,7 +19,12 @@ interface Uppdrag {
 export default function UppdragPage({ params }: { params: { id: string } }) {
   return (
     <Container className="pt-[6.4rem]">
-      <ButtonComponent href="/uppdrag" variant="primary" size="large" className="mb-6">
+      <ButtonComponent
+        href="/uppdrag"
+        variant="primary"
+        size="large"
+        className="mb-6"
+      >
         Gå tillbaka
       </ButtonComponent>
       <Card className="p-6">
@@ -36,7 +41,10 @@ export default function UppdragPage({ params }: { params: { id: string } }) {
             <HeroTitle>Front End Utvecklare</HeroTitle>
           </CardTitle>
         </CardHeader>
-        <CardDescription className="flex gap-4">
+        <CardDescription
+          className="flex gap-4 bg-[#201726]
+        p-4 rounded-xl"
+        >
           <div className="md:basis-2/3">
             VI söker just nu en Front End utvecklare som kan hjälpa oss med att
             bygga en ny hemsida. Vi söker dig som har erfarenhet av att arbeta
@@ -45,7 +53,7 @@ export default function UppdragPage({ params }: { params: { id: string } }) {
           <div className="flex gap-4 md:basis-1/3">
             <div className="space-y-4">
               <h2 className="font-bold uppercase">Erfarenheter</h2>
-              <ul>
+              <ul className=" list-disc md:text-[1.2rem]">
                 <li>3 års erfarenhet</li>
                 <li>React</li>
                 <li>Typescript</li>
@@ -54,8 +62,8 @@ export default function UppdragPage({ params }: { params: { id: string } }) {
               </ul>
             </div>
             <div className="space-y-4">
-              <h2 className="font-bold uppercase">Extra erfanrehter</h2>
-              <ul className="">
+              <h2 className="font-bold uppercase">Meriterande erfarenheter</h2>
+              <ul className=" list-disc md:text-[1.2rem]">
                 <li>3 års erfarenhet</li>
                 <li>React</li>
                 <li>Typescript</li>
@@ -65,7 +73,11 @@ export default function UppdragPage({ params }: { params: { id: string } }) {
             </div>
           </div>
         </CardDescription>
-        <CardFooter>Footer</CardFooter>
+        <CardFooter className="mt-6 p-0">
+          <ButtonComponent href="/" variant="primary" size="large">
+            Ansök
+          </ButtonComponent>
+        </CardFooter>
       </Card>
     </Container>
   );
